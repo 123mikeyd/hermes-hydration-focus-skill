@@ -1,6 +1,6 @@
 # Hermes Hydration + Focus Check-ins Skill
 
-A Nous Research-flavored community skill for Hermes Agent, the open-source agent framework from Nous Research. It helps set up hydration, stretch, posture, and focus reminders throughout the day.
+A community skill for Hermes Agent. It helps set up hydration, stretch, posture, and focus reminders throughout the day.
 
 Built for the Hermes cron + messaging workflow, it covers:
 
