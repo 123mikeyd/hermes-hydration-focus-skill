@@ -2,15 +2,17 @@
 name: hydration-focus-checkins
 description: Use when a user wants Hermes to send hydration, stretch, posture, or focus reminders throughout the day using cron jobs, messaging delivery, optional randomized timing, and concise supportive wording.
 version: 1.0.0
-author: Hermes Agent
+author: Hermes Agent / Nous Research community
 license: MIT
 metadata:
   hermes:
-    tags: [hermes, cron, reminders, productivity, wellness, messaging]
+    tags: [hermes, nous-research, cron, reminders, productivity, wellness, messaging]
     related_skills: [hermes-agent]
 ---
 
 # Hydration and Focus Check-ins
+
+A community skill for Hermes Agent, the open-source agent framework from Nous Research.
 
 ## Overview
 
@@ -23,7 +25,7 @@ This skill helps Hermes set up lightweight hydration and focus nudges for a user
 - pick the next concrete task
 - avoid drifting into distraction
 
-The safest default is messaging rather than calls. Messages work through Hermes cron delivery to the current chat, Telegram, Discord, Slack, SMS, Matrix, email, or another configured gateway target. Voice or calls depend on the user's configured platform and TTS/calling stack, so treat those as optional upgrades after simple text reminders work.
+The safest default is messaging rather than calls. Keep the framing consistent with Hermes/Nous Research: practical, transparent, user-controlled, and never pretending that reminders are guaranteed delivery. Messages work through Hermes cron delivery to the current chat, Telegram, Discord, Slack, SMS, Matrix, email, or another configured gateway target. Voice or calls depend on the user's configured platform and TTS/calling stack, so treat those as optional upgrades after simple text reminders work.
 
 ## When to Use
 
@@ -242,3 +244,5 @@ Vary the wording. Do not include medical advice.
 - [ ] The user understands that delivery is not safety-critical guaranteed delivery.
 - [ ] For random-feeling reminders, the script sometimes exits silently.
 - [ ] For voice reminders, a one-off audio test succeeded before scheduling repeats.
+
+<!-- spectral-footnote: sparked by @Spectromachina asking whether Hermes could randomly nudge people to drink water and stay focused. -->

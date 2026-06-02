@@ -7,7 +7,7 @@ After you authenticate safely in your own shell:
 ```bash
 gh auth login
 cd /home/mikeyd/hermes-hydration-focus-skill
-gh repo create hermes-hydration-focus-skill --public --description "Hermes Agent skill for hydration and focus check-ins" --source . --push
+gh repo create hermes-hydration-focus-skill --public --description "Nous Research/Hermes Agent skill for hydration and focus check-ins" --source . --push
 ```
 
 If the repo already exists:
@@ -21,5 +21,5 @@ git push -u origin main
 Suggested X reply after the repo is public:
 
 ```text
-Yep — made a little Hermes skill for exactly this: hydration/focus check-ins, scheduled or random-feeling, with cron + messaging delivery. Here you go: https://github.com/123mikeyd/hermes-hydration-focus-skill
+Yep — made a little Nous Research/Hermes skill for exactly this: hydration/focus check-ins, scheduled or random-feeling, with cron + messaging delivery. Here you go: https://github.com/123mikeyd/hermes-hydration-focus-skill
 ```

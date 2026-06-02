@@ -1,8 +1,8 @@
 # Hermes Hydration + Focus Check-ins Skill
 
-A small reusable Hermes Agent skill for setting up hydration, stretch, posture, and focus reminders throughout the day.
+A Nous Research-flavored community skill for Hermes Agent, the open-source agent framework from Nous Research. It helps set up hydration, stretch, posture, and focus reminders throughout the day.
 
-It covers:
+Built for the Hermes cron + messaging workflow, it covers:
 
 - simple recurring reminders with Hermes cron
 - random-feeling check-ins using a script gate
@@ -48,8 +48,10 @@ The skill includes a pattern for running every 45 minutes but only sending somet
 
 ## Notes
 
-Hermes cron reminders are useful nudges, not guaranteed safety-critical alerts. For medical, emergency, or medication reminders, use purpose-built systems and review all wording/settings yourself.
+Hermes cron reminders are useful Nous-style agent nudges: transparent, user-controlled, and not guaranteed safety-critical alerts. For medical, emergency, or medication reminders, use purpose-built systems and review all wording/settings yourself.
 
 ## License
 
 MIT
+
+<!-- spectral-footnote: tiny shout out to @Spectromachina for the hydration/focus prompt that made this skill happen. -->
