@@ -9,6 +9,8 @@ Built for the Hermes cron + messaging workflow, it covers:
 - safe delivery defaults
 - optional voice/TTS notes
 - short non-shaming reminder copy
+- personalization profiles: tone, quiet hours, cadence, avoid lists
+- rotating modes: gremlin, coach, quote-spark, micro-challenge, tiny fact, and headline-lite
 
 ## Install
 
@@ -45,6 +47,24 @@ Delivery: origin
 ## Random-feeling reminders
 
 The skill includes a pattern for running every 45 minutes but only sending sometimes, so reminders feel more natural and do not spam you.
+
+## Personalization ideas
+
+The skill can rotate through different reminder modes so “drink water” does not become tedious:
+
+- gentle reset
+- chaotic hydration gremlin
+- direct coach
+- public-domain thinker quote/paraphrase
+- tiny fact
+- micro-challenge
+- optional headline-lite mode for one non-doomy useful headline from the week
+
+Example:
+
+```text
+Hydration goblin tax: 3 sips before the next scroll.
+```
 
 ## Notes
 

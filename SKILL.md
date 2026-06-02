@@ -97,6 +97,134 @@ Examples of acceptable style:
 - Tiny focus reboot: drink water, stretch your hands, then do the next 5 minutes.
 ```
 
+
+## Personalization Layer
+
+Boring reminders get ignored. Before creating the cron job, ask the user a few lightweight preference questions and store the answers in the cron prompt, not in global memory unless they explicitly want that.
+
+Useful personalization questions:
+
+- What hours should reminders happen?
+- How often is too often?
+- Preferred tone: gentle, funny, poetic, blunt, chaotic gremlin, coach, scientist, monk, cyberpunk, pirate, or custom?
+- Allowed extras: quotes, headlines, micro-challenges, tiny facts, jokes, breathing cues, music prompts?
+- Avoid list: topics, words, guilt, profanity, news, politics, medical advice, religious quotes, etc.
+- Focus target: coding, studying, art, workouts, chores, job search, writing, or general life maintenance?
+
+Template profile block to include in the cron prompt:
+
+```text
+User reminder preferences:
+- Quiet hours: 8pm-9am local time.
+- Frequency: a few times during the day; avoid spam.
+- Tone: playful but not cringe; concise; no guilt.
+- Extras allowed: quotes, tiny facts, micro-challenges, occasional upbeat headlines.
+- Extras avoided: politics, tragedy, medical claims, shame, long lectures.
+- Focus target: choose the next concrete task and reduce tab-drifting.
+```
+
+## Message Modes
+
+Rotate between message modes so reminders do not become dull.
+
+| Mode | What it does | Example |
+| --- | --- | --- |
+| plain-reset | classic hydration/focus nudge | `Water. Shoulders down. Pick one next action.` |
+| gremlin | playful chaos without being mean | `Hydration goblin check: sip water before your tabs multiply again.` |
+| coach | direct and grounded | `Reset: water, posture, next 10-minute task. Start small.` |
+| quote-spark | adds a short public-domain quote or paraphrase | `Marcus Aurelius would say: do the next right thing. Also drink water.` |
+| micro-challenge | gives a tiny action | `Challenge: 3 sips, 3 breaths, close 1 distraction tab.` |
+| tiny-fact | adds a small evergreen fact | `Your brain likes water and oxygen. Sip, breathe, continue.` |
+| headline-lite | uses one non-doom headline from the week, if web tools are available | `World is noisy; your job is one tab. Water first, then build.` |
+
+Keep each reminder short. A good rotation feels alive; a bad one feels like a newsletter stapled to a water bottle.
+
+## Quote and Thinker Mode
+
+Use short, non-copyright-problematic quotes or paraphrases. Prefer public-domain thinkers and compact paraphrases over long copied passages.
+
+Good sources/styles:
+
+- Marcus Aurelius / Stoic reset: next right action, attention, discipline
+- Seneca / shortness of life: use the hour well
+- Laozi-style paraphrase: small steps, soft persistence
+- Mary Oliver-style reminder without quoting living/copyrighted text directly: attention, wonder, the ordinary world
+- James Clear-style habit concept without quoting: make the next good action easy
+
+Example prompt add-on:
+
+```text
+Occasionally include a short public-domain quote or clearly labeled paraphrase from a thinker. Keep it under 160 characters total. Do not use long copyrighted quotes.
+```
+
+Examples:
+
+```text
+Marcus Aurelius vibe: return to the task in front of you. Also: water.
+Seneca would bully your calendar, not you. Sip water. Spend the next 10 minutes well.
+Small steps count. Water, breath, one clean action.
+```
+
+## Headline-Lite Mode
+
+Headlines can make reminders feel fresh, but they can also become doomscroll bait. Use this mode sparingly and filter hard.
+
+Rules:
+
+- Only use headlines if web/search tools are available in that cron run.
+- Prefer science, space, art, open-source, local events, uplifting tech, or genuinely useful world updates.
+- Avoid tragedy, outrage, war, partisan bait, celebrity gossip, and anything that makes the user more distracted.
+- Summarize in one phrase. Do not turn the reminder into a news digest.
+- If no good headline is found quickly, skip headline mode and send a normal reminder.
+
+Example cron prompt for headline mode:
+
+```text
+Send one short hydration/focus reminder. Optionally include one uplifting or useful headline from the past week, but only if it is non-doomy and can be summarized in a few words. Avoid politics, tragedy, outrage, and celebrity gossip. Under 220 characters. End with one concrete next action.
+```
+
+Example output:
+
+```text
+Tiny science/news spark if available: something cool happened; you can read later. For now: water, shoulders, one next task.
+```
+
+## Rich Rotating Cron Prompt
+
+Use this when the user wants the reminders to feel personal and varied:
+
+```text
+Send the user one hydration/focus check-in.
+
+User preferences:
+- Quiet hours: 8pm-9am local time.
+- Tone: playful, vivid, and kind; never shamey.
+- Allowed modes: plain reset, gremlin, coach, quote-spark, micro-challenge, tiny fact.
+- Optional mode if web tools are available: one non-doomy headline-lite item from the past week.
+- Avoid: politics, tragedy, outrage, medical claims, long lectures.
+
+Constraints:
+- Usually under 180 characters; max 220 if using headline-lite.
+- Mention water or hydration most of the time, but not always in the exact same words.
+- Include one concrete action: sip water, stretch, breathe, close a tab, pick a tiny task, or look away from screen.
+- Vary the style each run.
+```
+
+## Example Colorful Message Bank
+
+```text
+Hydration goblin tax: 3 sips before the next scroll.
+Tiny monk mode: water, breath, one clean action.
+Your tabs are breeding. Sip water, close one, choose the next move.
+Knightly quest: refill chalice, loosen shoulders, defeat one tiny task.
+NASA-grade reset: oxygen, water, trajectory correction. Next 5 minutes only.
+Stoic ping: control the sip, control the next step, ignore the circus.
+Soft reboot: jaw unclenched, shoulders down, water in system.
+Gremlin says: drink water before becoming a raisin with Wi-Fi.
+Micro-challenge: 3 sips, 3 breaths, 1 tab closed.
+Future-you sent a memo: water now, fewer headaches later.
+```
+
 ## Randomized Timing Pattern
 
 Hermes cron schedules are deterministic. To create a more random-feeling reminder pattern, use a frequent cron job with a small script that sometimes stays quiet. This is best for users who want "randomly throughout the day" without being spammed.
