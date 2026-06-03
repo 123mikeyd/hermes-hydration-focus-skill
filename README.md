@@ -46,7 +46,12 @@ Delivery: origin
 
 ## Random-feeling reminders
 
-The skill includes a pattern for running every 45 minutes but only sending sometimes, so reminders feel more natural and do not spam you.
+The skill includes two patterns for reminders that feel more natural:
+
+1. Simple gate: run every 45 minutes, but only send sometimes. Best for low-pressure all-day ambient nudges.
+2. Adaptive gate: use one frequent cron plus a state file. After a missed reminder, the send chance increases and the next eligible check comes sooner. After a reminder sends, it resets back to baseline.
+
+For short tests, use guaranteed one-shot reminders at irregular times so you actually receive messages.
 
 ## Personalization ideas
 

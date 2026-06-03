@@ -271,6 +271,34 @@ cronjob(
 
 Important behavior: with `no_agent=True`, empty stdout means Hermes sends nothing. This lets the script decide whether a check-in happens.
 
+## Adaptive Random Timing Pattern
+
+For short tests or users who expect a few reminders, the simple 35% gate can feel wrong because it may stay silent too often. A better long-running random mode is an adaptive gate: one frequent cron job checks a state file, but messages only send when the script says so.
+
+Behavior:
+
+1. After a reminder sends, reset to a baseline 45-minute interval and 35% send chance.
+2. At the next eligible check, roll the chance.
+3. If no reminder sends, increase the chance and shorten the next interval.
+4. Keep increasing the chance and shortening the interval until a reminder gets through.
+5. After a reminder sends, reset to baseline.
+
+This avoids creating a cluster of new cron jobs. Hermes only runs one script-only cron, for example every 5 minutes:
+
+```python
+cronjob(
+  action="create",
+  name="adaptive-hydration-focus-checkin",
+  schedule="every 5m",
+  script="adaptive_hydration_focus_gate.py",
+  no_agent=True,
+)
+```
+
+The script stores state in `~/.hermes/state/hydration_focus_adaptive.json`. It does not advance the probability during quiet hours. Empty stdout still means Hermes sends nothing.
+
+Use adaptive mode when the user wants reminders to feel random but not disappear for too long. Use guaranteed one-shot jobs instead when testing a short fixed window like "send three reminders over the next two and a half hours."
+
 ## Delivery Targets
 
 Default delivery should be the origin conversation unless the user asks otherwise. If the user asks for a specific channel or person, list available targets first and choose the exact target.
